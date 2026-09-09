@@ -1,0 +1,140 @@
+.about-wrapper {
+    position: relative;
+    z-index: 10;
+    width: 90vw;
+    max-width: 1400px;
+    min-height: 100vh;
+    padding: 120px 0 80px 0;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+    overflow: visible;
+}
+
+/* Os "Vidros" (Cards Base) */
+.about-glass-card {
+    background: rgba(25, 30, 45, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 12px;
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.7), inset 0 0 15px rgba(255,255,255,0.05);
+    backdrop-filter: blur(12px);
+    transition: transform 0.3s;
+}
+
+.about-glass-card:hover {
+    box-shadow: 0 10px 40px rgba(0, 150, 255, 0.2), inset 0 0 20px rgba(255,255,255,0.1);
+}
+
+
+/* COLUNA ESQUERDA (Info Fixa) */
+.about-left-col {
+    flex: 1;
+    min-width: 320px;
+    max-width: 400px;
+    align-self: flex-start;
+    position: sticky;
+    top: 100px;
+}
+
+.identity-card {
+    border-top: 4px solid #00d2ff;
+    animation: slideDown 0.8s ease-out both;
+    display: flex;
+    flex-direction: column;
+}
+
+.avatar-core-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 20px auto;
+    color: #4db8ff;
+    background: rgba(0,0,0,0.3);
+    border-radius: 50%;
+    padding: 15px;
+    border: 1px solid rgba(0, 210, 255, 0.3);
+    box-shadow: 0 0 20px rgba(0, 210, 255, 0.2);
+}
+
+.info-list {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    margin-top: 25px;
+}
+
+.info-box {
+    display: flex;
+    flex-direction: column;
+}
+
+.info-label {
+    display: block;
+    font-size: 0.85rem;
+    color: #4db8ff;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    font-family: 'Courier New', Courier, monospace;
+    letter-spacing: 1px;
+}
+
+.info-value {
+    color: #fff;
+    font-weight: bold;
+    font-size: 1.15rem;
+    line-height: 1.4;
+    text-shadow: 0 0 10px rgba(255,255,255,0.2);
+}
+
+/* COLUNA DIREITA (Toda as Lores Longas) - Rolagem via página */
+.about-right-col {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding-bottom: 40px;
+}
+
+.block-bg {
+    border-left: 4px solid #ff9600;
+    animation: slideRightReveval 0.8s ease-out 0.2s both;
+}
+
+.block-mission {
+    border-left: 4px solid #00d2ff;
+    animation: slideRightReveval 0.8s ease-out 0.4s both;
+}
+
+.block-quests {
+    border-left: 4px solid #b200ff;
+    animation: slideRightReveval 0.8s ease-out 0.6s both;
+}
+
+.about-title {
+    font-size: 1.6rem;
+    color: #fff;
+    margin-bottom: 20px;
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+
+.highlight-orange { color: #ff9600; text-shadow: 0 0 10px rgba(255, 150, 0, 0.4); }
+.highlight-cyan { color: #00d2ff; text-shadow: 0 0 10px rgba(0, 210, 255, 0.4); }
+.highlight-purple { color: #b200ff; text-shadow: 0 0 10px rgba(178, 0, 255, 0.4); }
+
+.about-text {
+    font-size: 1.15rem;
+    color: #cbd5e1;
+    line-height: 1.8;
+}
+
+/* Responsividade Básica (quebra pra coluna se apertar mt) */
+@media (max-width: 900px) {
+    .about-wrapper {
+        flex-direction: column;
+    }
+    .about-left-col {
+        max-width: 100%;
+    }
+}

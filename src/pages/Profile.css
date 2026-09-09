@@ -1,0 +1,318 @@
+.profile-container {
+    width: 100vw;
+    height: 100vh;
+    background-color: #0d0d0d;
+    position: relative;
+    overflow: hidden;
+    color: #fff;
+    cursor: default;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Background suave */
+.profile-matrix-background {
+    position: absolute;
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Header de HUD superior */
+.hud-top-bar {
+    position: relative;
+    width: 100%;
+    padding: 20px 40px 0 40px;
+    padding-right: calc(40px + 80px); /* reserva espaço pro botão do menu */
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    z-index: 5;
+    box-sizing: border-box;
+    animation: slideDown 0.8s ease-out 0.5s both;
+    flex-shrink: 0;
+}
+.hud-title {
+    font-size: 1.2rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    color: rgba(255,255,255,0.9);
+}
+.hud-line {
+    flex-grow: 1;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(255,255,255,0.4), transparent);
+}
+.hud-location {
+    font-size: 0.8rem;
+    color: #00ffcc;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+/* GRID PRINCIPAL QUEBRADO EM 3 COLUNAS */
+.profile-grid {
+    position: relative;
+    z-index: 10;
+    flex: 1;
+    width: 100%;
+    padding: 30px 5vw 40px 5vw;
+    padding-right: calc(5vw + 80px); /* reserva espaço pro Menu SAO */
+    display: flex;
+    align-items: stretch; /* colunas com mesma altura */
+    justify-content: space-between;
+    gap: 40px;
+    box-sizing: border-box;
+}
+
+/* =======================================
+   COLUNA 1: AVATAR HOLOGRAMA
+======================================= */
+.avatar-section {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center; /* mantém o holograma centralizado verticalmente dentro da coluna */
+    min-height: 300px;
+    animation: fadeInReveal 1s ease-out 0.3s both;
+}
+
+.avatar-hologram {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Dando uma inclinação 3d pro avatar */
+    transform-style: preserve-3d;
+    transform: perspective(800px) rotateY(15deg);
+}
+
+.avatar-core {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    color: rgba(255,255,255,0.8);
+    filter: drop-shadow(0 0 10px rgba(0, 255, 200, 0.5));
+}
+.avatar-core svg {
+    width: 100%;
+    height: 100%;
+}
+
+.spin-ring {
+    position: absolute;
+    border-radius: 50%;
+    border: 1px solid transparent;
+}
+.ring-1 {
+    width: 250px; height: 250px;
+    border-top: 2px solid rgba(0, 255, 204, 0.6);
+    border-bottom: 2px solid rgba(0, 255, 204, 0.1);
+    animation: spinRight 8s linear infinite;
+}
+.ring-2 {
+    width: 280px; height: 280px;
+    border-left: 2px solid rgba(255, 150, 0, 0.5);
+    border-right: 2px dashed rgba(255, 150, 0, 0.2);
+    animation: spinLeft 12s linear infinite;
+}
+.ring-3 {
+    width: 320px; height: 320px;
+    border: 1px dashed rgba(255, 255, 255, 0.2);
+    animation: spinRight 20s linear infinite;
+}
+
+@keyframes spinRight { 100% { transform: rotateZ(360deg); } }
+@keyframes spinLeft { 100% { transform: rotateZ(-360deg); } }
+
+
+/* =======================================
+   COLUNA 2: DADOS DE STATUS (MEIO)
+======================================= */
+.stats-section {
+    flex: 1.5;
+    background: rgba(25, 30, 40, 0.8);
+    padding: 35px 40px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-left: 4px solid var(--sao-orange);
+    backdrop-filter: blur(12px);
+    animation: slideRightReveval 0.8s ease-out 0.8s both;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.8), inset 0 0 10px rgba(255,255,255,0.05);
+    align-self: center; /* centraliza verticalmente sem esticar */
+    max-height: calc(100% - 20px);
+    overflow-y: auto;
+    scrollbar-width: none; /* esconde scrollbar no firefox */
+}
+.stats-section::-webkit-scrollbar { display: none; }
+
+.player-name {
+    font-size: 3.5rem;
+    line-height: 1;
+    margin-bottom: 10px;
+    font-weight: 300;
+    text-shadow: 0 0 10px rgba(255,255,255,0.4);
+    text-align: left;
+}
+
+.player-class {
+    font-size: 1.2rem;
+    color: #ff9800;
+    margin-bottom: 5px;
+    font-weight: 600;
+    text-align: left;
+}
+
+.player-guild {
+    color: #888;
+    font-size: 0.9rem;
+    font-family: 'Courier New', Courier, monospace;
+    text-align: left;
+}
+
+.divider-line {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(255,255,255,0.2), transparent);
+    margin: 25px 0;
+}
+
+.equips-list h3 {
+    font-size: 1rem;
+    color: #fff;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+    text-align: left;
+}
+
+.equips-list ul {
+    list-style: none;
+    text-align: left;
+}
+
+.equips-list li {
+    font-size: 1rem;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    color: #ddd;
+    gap: 8px;
+    text-align: left;
+}
+
+/* Atributos RPG */
+.attr-desc {
+    flex: 1;
+    font-size: 0.9rem;
+    color: #b0bec5;
+}
+.attr-val {
+    font-weight: 700;
+    color: #00ffcc;
+    font-family: monospace;
+    font-size: 1rem;
+    min-width: 30px;
+    text-align: right;
+}
+
+.bullet {
+    width: 8px; height: 8px;
+    background-color: var(--sao-orange);
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 15px;
+    box-shadow: 0 0 5px var(--sao-orange);
+}
+
+
+/* =======================================
+   COLUNA 3: AS BARRAS DE SAÚDE / EXP
+======================================= */
+.vitals-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    gap: 20px;
+    animation: slideLeftReveal 0.8s ease-out 1.2s both;
+}
+
+.hp-margin { margin-bottom: 20px; }
+
+.vital-bar-container {
+    background: rgba(20, 25, 35, 0.8);
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid rgba(255,255,255,0.15);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5), inset 0 0 10px rgba(255,255,255,0.02);
+    margin-bottom: 20px;
+}
+
+.vital-label {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.bar-track {
+    width: 100%;
+    height: 12px;
+    background: #222;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid #444;
+}
+.thin-track { height: 6px; }
+
+.bar-fill {
+    height: 100%;
+    border-radius: 10px;
+    width: 0; /* Base pro keyframe preencher ao injetar na tela */
+}
+
+/* Cores Típicas das Barras de SAO */
+.hp-fill { 
+    background: linear-gradient(90deg, #27c93f, #1fa332); 
+    box-shadow: 0 0 10px #27c93f;
+    animation: fillBar 1.5s cubic-bezier(0.1, 0.8, 0.1, 1) 1.8s forwards;
+    --target-width: 100%;
+}
+.mp-fill { 
+    background: linear-gradient(90deg, #00d2ff, #3a7bd5); 
+    box-shadow: 0 0 10px #00d2ff;
+    animation: fillBar 1s cubic-bezier(0.1, 0.8, 0.1, 1) 2.2s forwards;
+    --target-width: 80%;
+}
+.exp-fill { 
+    background: linear-gradient(90deg, #ffbd2e, #e8a61c); 
+    animation: fillBar 2s cubic-bezier(0.1, 0.8, 0.1, 1) 2.5s forwards;
+    --target-width: 83%;
+}
+
+.mt { margin-top: 20px; }
+
+/* Animação das barras fluindo e completando  */
+@keyframes fillBar {
+    to { width: var(--target-width); }
+}
+
+/* Animações Sequenciais Seguras do HUD SAO - Usando 0% a 100% fixos */
+@keyframes slideDown { 
+    0% { opacity: 0; transform: translateY(-50px); } 
+    100% { opacity: 1; transform: translateY(0); } 
+}
+@keyframes slideRightReveval { 
+    0% { opacity: 0; transform: translateX(-30px); } 
+    100% { opacity: 1; transform: translateX(0); } 
+}
+@keyframes slideLeftReveal { 
+    0% { opacity: 0; transform: translateX(30px); } 
+    100% { opacity: 1; transform: translateX(0); } 
+}
+@keyframes fadeInReveal { 
+    0% { opacity: 0; } 
+    100% { opacity: 1; } 
+}

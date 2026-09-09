@@ -1,0 +1,188 @@
+/* Contact.css */
+
+.contact-grid {
+    position: relative;
+    z-index: 10;
+    flex: 1;
+    width: 100%;
+    padding: 30px 5vw 40px 5vw;
+    padding-right: calc(5vw + 80px);
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    box-sizing: border-box;
+}
+
+/* ==============================
+   COLUNA ESQUERDA: CARD DO PLAYER
+============================== */
+.contact-main-card {
+    flex: 1;
+    background: rgba(25, 30, 40, 0.85);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-left: 4px solid var(--sao-orange);
+    border-radius: 12px;
+    padding: 40px 35px;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.8), inset 0 0 10px rgba(255,255,255,0.03);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    animation: slideRightReveval 0.8s ease-out 0.3s both;
+}
+
+.contact-avatar-ring {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 2px solid rgba(0, 255, 204, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    color: rgba(255,255,255,0.8);
+    box-shadow: 0 0 15px rgba(0, 255, 204, 0.2);
+}
+.contact-avatar-ring svg {
+    width: 40px;
+    height: 40px;
+}
+
+.contact-name {
+    font-size: 2.2rem;
+    font-weight: 300;
+    margin-bottom: 6px;
+    text-shadow: 0 0 10px rgba(255,255,255,0.3);
+}
+
+.contact-role {
+    font-size: 0.95rem;
+    color: #ff9800;
+    margin-bottom: 14px;
+    font-weight: 600;
+}
+
+.contact-status {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.85rem;
+    color: #27c93f;
+    font-family: 'Courier New', monospace;
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    background: #27c93f;
+    border-radius: 50%;
+    box-shadow: 0 0 8px #27c93f;
+    animation: pulse-dot 2s ease-in-out infinite;
+}
+
+@keyframes pulse-dot {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+}
+
+.contact-bio {
+    font-size: 0.95rem;
+    color: #a1b0cc;
+    line-height: 1.7;
+}
+
+/* ==============================
+   COLUNA DIREITA: CARDS DE CANAL
+============================== */
+.contact-channels {
+    flex: 1.4;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    animation: slideLeftReveal 0.8s ease-out 0.5s both;
+}
+
+.channel-card {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background: rgba(20, 25, 35, 0.8);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 10px;
+    padding: 18px 22px;
+    text-decoration: none;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    backdrop-filter: blur(8px);
+    position: relative;
+    overflow: hidden;
+}
+
+.channel-card::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 3px;
+    border-radius: 10px 0 0 10px;
+    transition: width 0.25s ease;
+}
+
+.email-card::before    { background: #ff9800; }
+.phone-card::before    { background: #27c93f; }
+.linkedin-card::before { background: #00d2ff; }
+.github-card::before   { background: #a78bfa; }
+
+.channel-card:hover {
+    transform: translateX(6px);
+    border-color: rgba(255,255,255,0.2);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+}
+.email-card:hover    { background: rgba(255, 152, 0, 0.08); }
+.phone-card:hover    { background: rgba(39, 201, 63, 0.08); }
+.linkedin-card:hover { background: rgba(0, 210, 255, 0.08); }
+.github-card:hover   { background: rgba(167, 139, 250, 0.08); }
+
+.channel-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    background: rgba(255,255,255,0.05);
+}
+.channel-icon svg { width: 22px; height: 22px; }
+
+.email-card    .channel-icon { color: #ff9800; }
+.phone-card    .channel-icon { color: #27c93f; }
+.linkedin-card .channel-icon { color: #00d2ff; }
+.github-card   .channel-icon { color: #a78bfa; }
+
+.channel-info {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.channel-label {
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    color: #556;
+    font-family: 'Courier New', monospace;
+    font-weight: 700;
+}
+
+.channel-value {
+    font-size: 1rem;
+    color: #ddd;
+    font-weight: 400;
+}
+
+.channel-action {
+    font-size: 0.8rem;
+    color: #556;
+    transition: color 0.2s;
+}
+.channel-card:hover .channel-action { color: #aaa; }

@@ -1,0 +1,129 @@
+.home-container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    background-color: #050505;
+}
+
+
+
+
+/* 2. CONSOLE GLASSMORPHISM */
+.terminal-glass {
+    position: relative;
+    z-index: 5;
+    background: rgba(20, 30, 40, 0.8);
+    border: 2px solid rgba(255, 255, 255, 0.15);
+    border-radius: 12px;
+    padding: 30px 40px 40px 40px;
+    width: 450px;
+    max-width: 90%;
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.8), inset 0 0 10px rgba(255,255,255,0.05), 0 0 20px rgba(255,255,255,0.05); /* Sombra clara requisitada */
+    transition: transform 0.5s ease-out, filter 0.5s ease-out, opacity 0.3s ease-out;
+}
+
+.terminal-header {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+.dot.red { background-color: #ff5f56; }
+.dot.yellow { background-color: #ffbd2e; }
+.dot.green { background-color: #27c93f; }
+
+/* 3. TIPOGRAFIA DE SISTEMA */
+.system-text {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1rem;
+    color: #4db8ff;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+.success { color: #27c93f; }
+
+.mt-small { margin-top: 10px; }
+.mt-large { margin-top: 40px; }
+
+.welcome-player {
+    text-align: center;
+    font-size: 2.2rem;
+    color: #fff;
+    text-shadow: 0 0 15px rgba(255,255,255,0.6);
+}
+
+/* 4. O GRANDE BOTÃO DE START */
+.link-start-btn {
+    display: block;
+    width: 100%;
+    padding: 15px 0;
+    font-size: 1.5rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    color: #fff;
+    background: linear-gradient(135deg, rgba(255, 150, 0, 0.8), rgba(255, 80, 0, 0.8));
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 50px;
+    cursor: pointer;
+    text-transform: uppercase;
+    box-shadow: 0 0 15px rgba(255, 150, 0, 0.4);
+    transition: all 0.3s;
+}
+
+.link-start-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px rgba(255, 150, 0, 1);
+    border-color: #fff;
+    background: linear-gradient(135deg, rgba(255, 160, 20, 1), rgba(255, 100, 0, 1));
+}
+
+/* Animações Sequenciais Seguras do React SPA */
+.fade-in-1 { animation: simpleFade 0.1s both 0.5s; }
+.fade-in-2 { animation: simpleFade 0.1s both 1.2s; }
+.fade-in-3 { animation: simpleFade 0.1s both 1.8s; }
+.fade-in-4 { animation: simpleFade 0.1s both 2.4s; }
+.welcome-player { animation: simpleFade 1s both 3.0s; }
+.link-start-btn { animation: simpleFade 1s both 3.5s; }
+
+@keyframes simpleFade {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+/* ========================================================
+   5. O CLARÃO DE IMERSÃO FINAL (PULANDO O TÚNEL)
+======================================================== */
+.flash-overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: #fff;
+    z-index: 9999;
+    pointer-events: none;
+    opacity: 0;
+    /* Apenas 1.2s de claração puro, muito mais elegante */
+    transition: opacity 1.2s cubic-bezier(0.1, 0.8, 0.1, 1);
+}
+
+.immerse-active .flash-overlay {
+    opacity: 1; 
+}
+
+/* Destrói o terminal explodindo ele pro fundo */
+.immerse-active .terminal-glass {
+    transform: scale(3.0);
+    filter: blur(25px);
+    opacity: 0;
+}

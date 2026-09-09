@@ -1,0 +1,322 @@
+.scrollable { 
+    overflow-y: auto; 
+    overflow-x: hidden; 
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE e Edge */
+}
+.scrollable::-webkit-scrollbar { 
+    display: none; /* Chrome, Safari e Opera */
+}
+.projects-wrapper { 
+    position: relative; 
+    z-index: 10; 
+    padding: 120px 5vw 80px 5vw; 
+    width: 80vw; 
+    display: flex; 
+    align-items: flex-start; 
+    justify-content: center; 
+    min-height: 100vh; 
+}
+.projects-grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
+    gap: 40px; 
+    width: 100%; 
+    max-width: 1200px; 
+}
+.project-card { 
+    background: rgba(25, 30, 45, 0.85); 
+    border: 1px solid rgba(255, 255, 255, 0.15); 
+    border-radius: 12px; 
+    padding: 30px; 
+    box-shadow: 0 10px 25px rgba(0,0,0,0.7), inset 0 0 15px rgba(255,255,255,0.05); 
+    backdrop-filter: blur(12px); 
+    transition: transform 0.3s, box-shadow 0.3s; 
+    animation: slideDown 0.8s ease-out both; 
+    position: relative; 
+    overflow: hidden; 
+}
+.project-card:hover { 
+    transform: translateY(-10px); 
+    box-shadow: 0 10px 30px rgba(0, 150, 255, 0.2); 
+    border-color: rgba(0, 150, 255, 0.5); 
+}
+.project-rarity { 
+    position: absolute; 
+    top: 0; right: 0; 
+    padding: 5px 15px; 
+    border-bottom-left-radius: 10px; 
+    font-size: 0.8rem; 
+    font-weight: bold; 
+    letter-spacing: 1px; 
+    color: #fff; 
+}
+.legendary { 
+    background: linear-gradient(45deg, #ff9600, #ff5000); 
+    box-shadow: -2px 2px 10px rgba(255, 150, 0, 0.5); 
+}
+.epic { 
+    background: linear-gradient(45deg, #b200ff, #7000ff); 
+    box-shadow: -2px 2px 10px rgba(178, 0, 255, 0.5); 
+}
+.rare {
+    background: linear-gradient(45deg, #0077ff, #00c3ff);
+    box-shadow: -2px 2px 10px rgba(0, 150, 255, 0.5);
+}
+.project-title { 
+    font-size: 1.5rem; 
+    color: #fff; 
+    margin-bottom: 10px; 
+    font-weight: 300; 
+    margin-top: 15px; 
+}
+.project-desc { 
+    font-size: 1rem; 
+    color: #a1b0cc; 
+    line-height: 1.6; 
+    margin-bottom: 25px; 
+}
+.small-div { 
+    margin: 15px 0; 
+    background: linear-gradient(90deg, rgba(255,255,255,0.1), transparent); 
+}
+.equip-btn { 
+    width: 100%; 
+    padding: 12px 0; 
+    background: transparent; 
+    border: 1px solid var(--sao-border-color); 
+    color: var(--sao-text); 
+    text-align: center; 
+    border-radius: 4px; 
+    font-weight: 600; 
+    cursor: pointer; 
+    transition: 0.2s; 
+}
+.equip-btn:hover { 
+    background: var(--sao-border-color); 
+    color: #000; 
+    box-shadow: 0 0 15px rgba(255,255,255,0.5); 
+}
+
+/* =======================================
+   MODAL DE INSPEÇÃO DE ITEM
+======================================= */
+.inspect-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(6px);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: fadeInReveal 0.2s ease;
+    padding: 20px;
+}
+
+.inspect-panel {
+    background: rgba(15, 20, 30, 0.97);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-top: 3px solid rgba(255,255,255,0.3);
+    border-radius: 14px;
+    width: 95%; /* Usa 95% da tela pra ficar bem largo */
+    max-width: 1300px; /* Aumentei ainda mais o limite máximo */
+    height: 85vh; /* Forçando a altura pra imagem aproveitar 100% */
+    overflow: hidden;
+    scrollbar-width: none;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.9), 0 0 40px rgba(0,150,255,0.1);
+    position: relative;
+    animation: inspectSlideIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    display: flex;
+    flex-direction: row;
+}
+.inspect-panel::-webkit-scrollbar { display: none; }
+
+@keyframes inspectSlideIn {
+    from { opacity: 0; transform: scale(0.92) translateY(20px); }
+    to   { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.inspect-close {
+    position: absolute;
+    top: 16px; right: 16px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.15);
+    color: #aaa;
+    width: 34px; height: 34px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 0.9rem;
+    display: flex; align-items: center; justify-content: center;
+    transition: all 0.2s;
+    z-index: 10;
+}
+.inspect-close:hover {
+    background: rgba(255,80,80,0.2);
+    border-color: rgba(255,80,80,0.5);
+    color: #fff;
+}
+
+.inspect-rarity-badge {
+    position: absolute;
+    top: 0; left: 0;
+    padding: 6px 18px;
+    border-bottom-right-radius: 10px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    color: #fff;
+    z-index: 5;
+}
+
+/* Lado esquerdo — Informações */
+.inspect-content {
+    flex: 0 0 450px; /* Fixei a largura do texto, ele não vai crescer nem encolher */
+    padding: 52px 40px 40px 40px; /* Um pouco mais de respiro interno pro texto */
+    overflow-y: auto;
+    scrollbar-width: none;
+    border-right: 1px solid rgba(255,255,255,0.08);
+}
+.inspect-content::-webkit-scrollbar { display: none; }
+
+/* Lado direito — Imagem */
+.inspect-image-container {
+    flex: 1; /* A imagem pega todo o resto do espaço */
+    background: rgba(10, 14, 22, 0.95);
+    border-radius: 0 14px 14px 0;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.inspect-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    opacity: 0.95;
+    transition: opacity 0.3s;
+    padding: 0; /* Tirei o padding pra imagem encostar mais nas bordas */
+}
+
+.inspect-image:hover {
+    opacity: 1;
+}
+
+.inspect-image-placeholder {
+    display: none;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    color: #445;
+    font-size: 0.8rem;
+    font-family: 'Courier New', monospace;
+    letter-spacing: 1px;
+}
+
+/* Gradiente sutil sobre a imagem */
+.inspect-image-container::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, rgba(15,20,30,0.3) 0%, transparent 30%);
+    z-index: 1;
+    pointer-events: none;
+}
+
+@media (max-width: 700px) {
+    .inspect-panel {
+        flex-direction: column;
+        max-height: 92vh;
+        overflow-y: auto;
+    }
+    .inspect-image-container {
+        width: 100%;
+        height: 220px;
+        border-radius: 14px 14px 0 0;
+    }
+    .inspect-content {
+        border-right: none;
+        border-top: 1px solid rgba(255,255,255,0.08);
+    }
+}
+
+.inspect-title {
+    font-size: 1.8rem;
+    font-weight: 300;
+    color: #fff;
+    margin-bottom: 14px;
+    margin-top: 8px;
+    text-shadow: 0 0 10px rgba(255,255,255,0.2);
+}
+
+.inspect-meta {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+}
+
+.inspect-meta-item {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.meta-label {
+    font-size: 0.65rem;
+    letter-spacing: 2px;
+    color: #445;
+    font-family: 'Courier New', monospace;
+    font-weight: 700;
+}
+
+.meta-value {
+    font-size: 0.85rem;
+    color: #a0c4d8;
+    font-family: monospace;
+}
+
+.status-active {
+    color: #27c93f;
+}
+
+.inspect-role {
+    font-size: 0.78rem;
+    color: #00d2ff;
+    letter-spacing: 0.05em;
+    margin-bottom: 4px;
+}
+
+.inspect-fulldesc {
+    font-size: 1rem;
+    color: #b0bec5;
+    line-height: 1.8;
+}
+
+.inspect-github-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 24px;
+    padding: 10px 22px;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 6px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: all 0.2s;
+}
+.inspect-github-btn:hover {
+    background: rgba(255,255,255,0.08);
+    border-color: rgba(255,255,255,0.4);
+    box-shadow: 0 0 15px rgba(255,255,255,0.1);
+}

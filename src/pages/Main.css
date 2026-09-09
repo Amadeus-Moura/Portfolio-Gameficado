@@ -1,0 +1,32 @@
+/* Main.css */
+.main-content-wrapper {
+    justify-content: center;
+    align-items: center;
+}
+
+.main-welcome-card {
+    background: rgba(20, 30, 45, 0.8);
+    border: 1px solid rgba(255,255,255,0.2);
+    padding: 60px 80px;
+    border-radius: 16px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.8), inset 0 0 20px rgba(255,255,255,0.05);
+    backdrop-filter: blur(15px);
+    text-align: center;
+    z-index: 10;
+}
+
+.main-title {
+    font-size: 4rem;
+    font-weight: 300;
+    margin-bottom: 20px;
+    text-shadow: 0 0 20px rgba(255,255,255,0.5);
+    animation: fadeInReveal 2s both;
+}
+
+.main-text {
+    font-size: 1.2rem;
+    color: #a1b0cc;
+    max-width: 600px;
+    margin: 0 auto;
+    animation: fadeInReveal 2s both 1s;
+}

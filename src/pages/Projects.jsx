@@ -1,11 +1,24 @@
 import { useState } from 'react';
 import droneImg from '/projects/drone.png';
 import mediaflowImg from '/projects/mediaflow.png';
+import akameImg from '/projects/akame.png';
 
 export default function Projects() {
     const [selected, setSelected] = useState(null);
 
     const projects = [
+        {
+            title: "My Akame — Assistente Executiva de IA Autônoma",
+            rarity: "Item Lendário",
+            rarityColor: "legendary",
+            role: "Projeto Pessoal · Engenharia de IA & Cloud · Set/2026 – Presente",
+            stack: "Python · Google Gemini · Docker · SQLite · OCI · Telegram API",
+            desc: "Agente autônomo de inteligência artificial executiva operando 24/7 na nuvem da Oracle. Possui roteador cognitivo de modelos (Fast vs Smart), suporte multimodal a voz e worker proativo de agenda.",
+            fullDesc: "A Akame é uma assistente executiva autônoma de alta performance operando 24/7 em container Docker na nuvem da Oracle (OCI). Possui um motor de Roteamento Dinâmico de Modelos (Model Router) que alterna autonomamente entre o Gemini 3.5 Flash Lite para respostas sub-segundo e o Gemini 3.6 Flash para raciocínio denso e acadêmico. Conta com transcrição multimodal de áudio no Telegram com resposta progressiva, integração segura IMAP SSL com Gmail para síntese diária de newsletters, agenda relacional com sincronização Google Calendar em 1 clique, e um worker assíncrono em segundo plano para lembretes prévios de reuniões e briefings matinais às 07:00 da manhã.",
+            image: akameImg,
+            github: "https://github.com/Amadeus-Moura/Agente-My-Akame",
+            status: "Em produção 24/7"
+        },
         {
             title: "SmartSync — Sistema SCADA B2B",
             rarity: "Item Lendário",

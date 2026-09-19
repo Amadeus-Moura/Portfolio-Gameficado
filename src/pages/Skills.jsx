@@ -21,15 +21,15 @@ export default function Skills() {
                             <div className="skill-bar"><div className="skill-fill atk-fill" style={{width: '82%'}}></div></div>
                         </div>
                         <div className="skill-item">
-                            <span className="skill-name">Python</span>
-                            <div className="skill-bar"><div className="skill-fill atk-fill" style={{width: '65%'}}></div></div>
+                            <span className="skill-name">Python &amp; Engenharia de IA (LLMs/Gemini)</span>
+                            <div className="skill-bar"><div className="skill-fill atk-fill" style={{width: '78%'}}></div></div>
                         </div>
                         <div className="skill-item">
-                            <span className="skill-name">React (Zustand & Ecossistema)</span>
+                            <span className="skill-name">React (Zustand &amp; Ecossistema)</span>
                             <div className="skill-bar"><div className="skill-fill atk-fill" style={{width: '60%'}}></div></div>
                         </div>
                         <div className="skill-item">
-                            <span className="skill-name">APIs RESTful (Design & Consumo)</span>
+                            <span className="skill-name">APIs RESTful (Design &amp; Consumo)</span>
                             <div className="skill-bar"><div className="skill-fill atk-fill" style={{width: '78%'}}></div></div>
                         </div>
                     </div>
@@ -37,27 +37,27 @@ export default function Skills() {
 
                 {/* SET DE PASSIVAS */}
                 <div className="skill-tree passive-tree">
-                    <h2 className="tree-title">🛡️ Passivas (Dados, Infra & Ferramentas)</h2>
+                    <h2 className="tree-title">🛡️ Passivas (Dados, Infra &amp; Ferramentas)</h2>
                     <div className="tree-items">
                         <div className="skill-item">
                             <span className="skill-name">MySQL · PostgreSQL · SQLite</span>
                             <div className="skill-bar"><div className="skill-fill pass-fill" style={{width: '75%'}}></div></div>
                         </div>
                         <div className="skill-item">
-                            <span className="skill-name">Prisma ORM & Modelagem Relacional</span>
+                            <span className="skill-name">Docker &amp; Cloud (Oracle OCI / Linux 24/7)</span>
+                            <div className="skill-bar"><div className="skill-fill pass-fill" style={{width: '76%'}}></div></div>
+                        </div>
+                        <div className="skill-item">
+                            <span className="skill-name">Prisma ORM &amp; Modelagem Relacional</span>
                             <div className="skill-bar"><div className="skill-fill pass-fill" style={{width: '70%'}}></div></div>
                         </div>
                         <div className="skill-item">
-                            <span className="skill-name">Git & GitHub</span>
+                            <span className="skill-name">Git &amp; GitHub (CI/CD &amp; Deploy Keys)</span>
                             <div className="skill-bar"><div className="skill-fill pass-fill" style={{width: '85%'}}></div></div>
                         </div>
                         <div className="skill-item">
-                            <span className="skill-name">Linux & Suporte de TI (Hardware/Software)</span>
+                            <span className="skill-name">Linux &amp; Suporte de TI (Hardware/Software)</span>
                             <div className="skill-bar"><div className="skill-fill pass-fill" style={{width: '72%'}}></div></div>
-                        </div>
-                        <div className="skill-item">
-                            <span className="skill-name">Scrum · Excel Avançado · Noções SAP</span>
-                            <div className="skill-bar"><div className="skill-fill pass-fill" style={{width: '68%'}}></div></div>
                         </div>
                     </div>
                 </div>

@@ -27,7 +27,7 @@ export default function Profile() {
                 {/* COLUNA CENTRAL: STATUS DE TEXTO E SIDE QUESTS */}
                 <div className="stats-section">
                     <h1 className="player-name">Amadeus Moura</h1>
-                    <h2 className="player-class">Desenvolvedor Backend | Node.js · TypeScript · MySQL</h2>
+                    <h2 className="player-class">Desenvolvedor Backend &amp; IA | Node.js · Python · Cloud · LLMs</h2>
                     <p className="player-guild">Guild: GuardSecure · Jovem Aprendiz Administrativo</p>
                     <div className="divider-line"></div>
 
@@ -43,6 +43,11 @@ export default function Profile() {
                                 <span className="bullet"></span>
                                 <span className="attr-desc">Lógica &amp; Arquitetura de Sistemas</span>
                                 <span className="attr-val">85</span>
+                            </li>
+                            <li>
+                                <span className="bullet"></span>
+                                <span className="attr-desc">Engenharia de Prompt &amp; Agentes de IA</span>
+                                <span className="attr-val">86</span>
                             </li>
                             <li>
                                 <span className="bullet"></span>
